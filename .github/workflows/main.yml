@@ -1,9 +1,13 @@
 name: 'Continuous Integration'
 on:
-  pull_request:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
 jobs:
   prepare:
     uses: ./.github/workflows/build.yml
