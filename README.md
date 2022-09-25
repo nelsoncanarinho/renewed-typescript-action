@@ -1,43 +1,55 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
+# renewed typescript action
 
-# Create a JavaScript Action using TypeScript
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![ci](https://github.com/nelsoncanarinho/renewed-typescript-action/actions/workflows/main.yml/badge.svg)](https://github.com/nelsoncanarinho/renewed-typescript-action/actions/workflows/main.yml)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
-Use this template to bootstrap the creation of a TypeScript action.:rocket:
+## Create awesome Github Actions with Typescript 😎
 
-This template includes compilation support, tests, a validation workflow, publishing, and versioning guidance.  
+This is a ready to use Typescript template for create Github Actions.
 
-If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
+This template includes compilation support, tests, a validation workflow, publishing, and versioning.
+
+It's based on [actions/typescript-action](https://github.com/actions/typescript-action) with some tweaks.
+
+### Tweaks
+
+- Uses `pnpm` as package manager;
+- Uses `eslint` and `prettier` with minimal configuration;
+- Up to date dependencies;
+- Simpler build configuration;
+- Easy to customize composable workflow;
+- Automatic release workflow;
 
 ## Create an action from this template
 
-Click the `Use this Template` and provide the new repo details for your action
+Click the `Use this Template` and provide the new repo details for your action.
+
+Make sure you have `nodejs` and `pnpm` installed on your machine.
 
 ## Code in Main
 
-> First, you'll need to have a reasonably modern version of `node` handy. This won't work with versions older than 9, for instance.
+Install the dependencies
 
-Install the dependencies  
 ```bash
-$ npm install
+pnpm install
 ```
 
 Build the typescript and package it for distribution
+
 ```bash
-$ npm run build && npm run package
+pnpm build
 ```
 
-Run the tests :heavy_check_mark:  
-```bash
-$ npm test
+Run the tests ✅:
 
- PASS  ./index.test.js
+```bash
+$ pnpm test
+
+ PASS  ./wait.test.js
   ✓ throws invalid number (3ms)
   ✓ wait 500 ms (504ms)
   ✓ test runs (95ms)
-
-...
 ```
 
 ## Change action.yml
@@ -57,49 +69,19 @@ import * as core from '@actions/core';
 ...
 
 async function run() {
-  try { 
+  try {
       ...
-  } 
+  }
   catch (error) {
     core.setFailed(error.message);
   }
 }
-
-run()
 ```
 
 See the [toolkit documentation](https://github.com/actions/toolkit/blob/master/README.md#packages) for the various packages.
 
 ## Publish to a distribution branch
 
-Actions are run from GitHub repos so we will checkin the packed dist folder. 
+Push code to `main` triggers a continuous integration pipeline that will take care of validate the source code, generate build artifacts and a new release based on the commits.
 
-Then run [ncc](https://github.com/zeit/ncc) and push the results:
-```bash
-$ npm run package
-$ git add dist
-$ git commit -a -m "prod dependencies"
-$ git push origin releases/v1
-```
-
-Note: We recommend using the `--license` option for ncc, which will create a license file for all of the production node modules used in your project.
-
-Your action is now published! :rocket: 
-
-See the [versioning documentation](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
-
-## Validate
-
-You can now validate the action by referencing `./` in a workflow in your repo (see [test.yml](.github/workflows/test.yml))
-
-```yaml
-uses: ./
-with:
-  milliseconds: 1000
-```
-
-See the [actions tab](https://github.com/actions/typescript-action/actions) for runs of this action! :rocket:
-
-## Usage:
-
-After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md) to reference the stable and latest V1 action
+> It's recommended to follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines to have a meaningfully commit history and to take advantage of [semantic-release](https://github.com/semantic-release/semantic-release/blob/master/README.md#how-does-it-work) automatic versioning.
