@@ -12,5 +12,5 @@ jobs:
     uses: ./.github/workflows/analyze.yml
 
   test:
-    needs: [prepare, analyze]
+    needs: prepare
     uses: ./.github/workflows/e2e.yml
