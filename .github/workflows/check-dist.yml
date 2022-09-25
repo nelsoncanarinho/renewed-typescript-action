@@ -40,6 +40,7 @@ jobs:
         run: |
           pnpm build
           pnpm package
+          git status
 
       - name: Compare the expected and actual dist/ directories
         run: |
