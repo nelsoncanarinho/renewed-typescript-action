@@ -1,0 +1,14 @@
+name: 'Continuous Integration'
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+  e2e:
+    needs: build
+    uses: ./.github/workflows/e2e.yml
+  analyze_source:
+    uses: ./.github/workflows/analyze.yml

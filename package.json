@@ -6,11 +6,11 @@
   "main": "dist/index.js",
   "scripts": {
     "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
+    "format:check": "prettier --check **/*.ts",
+    "lint": "eslint --fix src/**/*.ts",
+    "lint:check": "eslint src/**/*.ts",
     "build": "ncc build src/main.ts --license licenses.txt",
-    "test": "jest",
-    "all": "pnpm format && pnpm lint &&  pnpm test && pnpm build"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
