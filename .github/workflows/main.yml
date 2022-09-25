@@ -21,9 +21,6 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-      - run: git pull
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
