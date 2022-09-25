@@ -3,7 +3,6 @@ on:
 
 jobs:
   build:
-    name: Check source code and emit build artifacts to dist/
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

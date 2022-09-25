@@ -5,12 +5,12 @@ on:
     branches:
       - main
 jobs:
-  build:
+  prepare:
     uses: ./.github/workflows/build.yml
 
-  analyze_source:
+  analyze:
     uses: ./.github/workflows/analyze.yml
 
-  e2e:
-    needs: [build, analyze_source]
+  test:
+    needs: [build, analyze]
     uses: ./.github/workflows/e2e.yml

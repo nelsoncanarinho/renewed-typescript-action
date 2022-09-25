@@ -2,8 +2,7 @@ on:
   workflow_call:
 
 jobs:
-  analyze_source:
-    name: Analyze source with CodeQL
+  CodeQL:
     runs-on: ubuntu-latest
     permissions:
       actions: read
