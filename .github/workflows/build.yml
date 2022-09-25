@@ -36,5 +36,5 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           committer_name: GitHub Actions
-          message: 'chore: [skip-ci] formatted code & build artifacts'
+          message: 'chore: [skip-ci] format code and generate build artifacts'
           add: '.'
