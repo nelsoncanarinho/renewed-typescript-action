@@ -2829,7 +2829,7 @@ async function wait(milliseconds) {
     });
 }
 
-;// CONCATENATED MODULE: ./src/main.ts
+;// CONCATENATED MODULE: ./src/run.ts
 
 
 async function run() {
@@ -2846,6 +2846,9 @@ async function run() {
             core.setFailed(error.message);
     }
 }
+
+;// CONCATENATED MODULE: ./src/main.ts
+
 run();
 
 })();
