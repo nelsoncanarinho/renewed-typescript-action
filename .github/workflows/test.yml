@@ -11,10 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          npm install
-      - run: |
-          npm run all
+
+      - name: Set Node.js latest
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+
+      - name: Set pnpm latest
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Format, lint, test and build
+        run: pnpm all
+
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:

@@ -37,10 +37,7 @@ jobs:
         run: pnpm install
 
       - name: Rebuild the dist/ directory
-        run: |
-          pnpm build
-          pnpm package
-          git status
+        run: pnpm build
 
       - name: Compare the expected and actual dist/ directories
         run: |
