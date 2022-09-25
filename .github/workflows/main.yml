@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/analyze.yml
 
   test:
-    needs: prepare
+    needs: [prepare, analyze]
     uses: ./.github/workflows/e2e.yml
 
   release:
