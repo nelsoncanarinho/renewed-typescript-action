@@ -3,6 +3,7 @@ on:
 
 jobs:
   analyze_source:
+    name: Analyze source with CodeQL
     runs-on: ubuntu-latest
     permissions:
       actions: read
