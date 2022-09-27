@@ -15,9 +15,9 @@ jobs:
   analyze:
     uses: ./.github/workflows/analyze.yml
 
-  test:
+  validate:
     needs: [prepare, analyze]
-    uses: ./.github/workflows/e2e.yml
+    uses: ./.github/workflows/validate.yml
 
   release:
     runs-on: ubuntu-latest
