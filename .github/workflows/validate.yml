@@ -2,10 +2,11 @@ on:
   workflow_call:
 
 jobs:
-  e2e:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: git pull
       - uses: ./
         with:
           milliseconds: 1000
