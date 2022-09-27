@@ -15,7 +15,7 @@ jobs:
   analyze:
     uses: ./.github/workflows/analyze.yml
 
-  validate:
+  test:
     needs: [prepare, analyze]
     uses: ./.github/workflows/validate.yml
 
